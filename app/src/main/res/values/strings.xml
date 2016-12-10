@@ -1,0 +1,123 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="title_activity_main">Weather</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="Drawer_Exit">Exit</string>
+    <string name="Weather_Today">Weather today</string>
+    <string name="Weather_Week">Weather week</string>
+    <string name="Weather_Tomorrow">Weather tomorrow</string>
+    <string name="Setting">Setting</string>
+    <string name="ExceptionHTTPLocal">ExceptionHTTP</string>
+    <string name="ExceptionAPPLocal">ExceptionAPP</string>
+    <string name="SP_CheckRun">CheckRun</string>
+    <string name="SP_Check">Check</string>
+    <string name="Dialog_LocationTitle">location</string>
+    <string name="Dialog_LocationMessage">You must enter the city or to search by GPS.</string>
+    <string name="Update_Wifi">Update on the WIFI only</string>
+    <string name="Update_Startup">Update at startup</string>
+    <string name="Enter_City">Enter a city</string>
+    <string name="title_activity_setting">Settings</string>
+    <string name="Go_Setting">Go</string>
+    <string name="title_activity_settings_activitygg">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general" translatable="false">General</string>
+
+    <string name="pref_title_social_recommendations" translatable="false">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations" translatable="false">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name" translatable="false">Display name</string>
+    <string name="pref_default_display_name" translatable="false">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages" translatable="false">Add friends to messages</string>
+
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync" translatable="false">Data &amp; sync</string>
+
+
+
+    <string name="pref_title_system_sync_settings" translatable="false">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications" translatable="false">Notifications</string>
+
+    <string name="pref_title_new_message_notifications" translatable="false">New message notifications</string>
+
+
+    <string name="pref_title_vibrate" translatable="false">Vibrate</string>
+    <string name="SP_Setting">Setting</string>
+    <string name="Check_Setting">CheckSetting</string>
+    <string name="Sw_UpdateWIFI">SwUpdateWIFI</string>
+    <string name="Sw_UpdateStartup">SwUpdateStartup</string>
+    <string name="Sw_Enable_Enter_City">SwEnableEnterCity</string>
+    <string name="Auto_Search">Auto search</string>
+    <string name="Update_Time">Update time</string>
+    <string name="Sw_enable_UpdateTime">SwEnableUpdateTime</string>
+    <string name="SP_Name_City">NameCity</string>
+    <string name="SP_Check_City_Name">CheckCityName</string>
+    <string name="SP_Temp">Temp</string>
+    <string name="title_activity_weather_today" translatable="false">WeatherToday</string>
+    <string name="SP_Info">Info</string>
+    <string name="Bundle_Key">GPS</string>
+    <string name="Text_Temperature">Temperature:</string>
+    <string name="Text_Pressure">Pressure:</string>
+    <string name="SP_Info_CityId">CityId</string>
+    <string name="WeatherDayTemp">WeatherDayTemp</string>
+    <string name="WeatherDaySpeed">WeatherDaySpeed</string>
+    <string name="WeatherDayHumidity">WeatherDayHumid</string>
+    <string name="WeatherDayPressure">WeatherDayPress</string>
+    <string name="Tx_Humidity">Humidity:</string>
+    <string name="Tx_Wind">Wind:</string>
+    <string name="Disable_GPS">DisableGPS</string>
+    <string name="Dialog_Title_GPS">GPS</string>
+    <string name="Dialog_Message_GPS">To continue, you need to enable GPS</string>
+    <string name="Speed">m/sec</string>
+    <string name="Press">mm</string>
+    <string name="UpdateData">Update</string>
+    <string name="ExceptionHost">ExceptionHost</string>
+    <string name="ExceptionConnect">ExceptionConnect</string>
+    <string name="CheckConnection">Check the connection</string>
+    <string name="TypeWeather">TypeWeather</string>
+    <string name="UrlTest">http://google.com</string>
+    <string name="FragmentData">data</string>
+    <string name="EnterButton">Enter</string>
+    <string name="Nope_City">Nope this city</string>
+    <string name="DateToday">DateToday</string>
+    <string name="Dialog_Title_update">Update</string>
+    <string name="Dialog_Update_Message">Update the data ?</string>
+    <string name="Dialog_Update_Yes">Yes</string>
+    <string name="ask_at_startup">Ask at startup</string>
+    <string name="TimeDialog_Title">Select Time</string>
+    <string name="UpdateTime" translatable="false">UpdateTime</string>
+    <string name="Update_At">Update At</string>
+    <string name="CheckUpdateTime" translatable="false">CheckUpdateTime</string>
+    <string name="SP_AskStartup" translatable="false">AskStartup</string>
+    <string name="Dialog_Setting_No">No</string>
+    <string name="SP_Tomorrow" translatable="false">Tomorrow</string>
+    <string name="Tag_Main_View" translatable="false">tablet</string>
+    <string name="Domain" translatable="false">http://api.openweathermap.org/data/2.5/forecast/</string>
+    <string name="pref_location_name_key" translatable="false">Name</string>
+    <string name="pref_location_id_key" translatable="false">Id</string>
+    <string name="pref_location_id_default" translatable="false">2643743</string>
+    <string name="pref_location_name_default" translatable="false">London</string>
+    <string name="pref_updatewifi_key" translatable="false">updateWIFI</string>
+    <string name="DisableWifi">Turn on wifi or  disable updates wifi.</string>
+    <string name="Location_lat" translatable="false">lat</string>
+    <string name="Location_lon" translatable="false">lon</string>
+    <string name="Location_name_city" translatable="false">NameCity</string>
+    <string name="SP_City" translatable="false">City</string>
+    <string name="SP_Settings" translatable="false">settings</string>
+    <string name="Intent_searchGPS" translatable="false">searchGPS</string>
+    <string name="title_spinner_update_time"> Select how many update</string>
+    <string name="pref_switch_update_time_key">update_time_switch</string>
+    <string name="pref_update_time_key">update_time</string>
+</resources>

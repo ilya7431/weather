@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+    >
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:id="@+id/li_info_day"
+
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/im_weather_day"
+
+            android:layout_gravity="center_horizontal" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50sp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/tx_temperature_day"
+            android:textColor="@color/colorTextWhite"
+            android:layout_gravity="center_horizontal" />
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:layout_gravity="bottom"
+            android:baselineAligned="false">
+            <View
+                android:layout_width="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_height="1dp"
+                android:background="@color/colorLine" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/MarginTopForDay"
+                android:layout_marginBottom="@dimen/MarginBottomForDay"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Text_Pressure"
+                    android:gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorTextWhite"
+                    android:textSize="@dimen/NormalSizeText"
+
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextWhite"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/NormalSizeText"
+                    android:layout_gravity="right"
+                    android:id="@+id/tx_pressure_day" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+
+                android:layout_height="1dp"
+                android:background="@color/colorLine" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/MarginTopForDay"
+
+                android:layout_marginBottom="@dimen/MarginBottomForDay"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Tx_Humidity"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorTextWhite"
+                    android:gravity="right"
+                    android:textSize="@dimen/NormalSizeText"
+                    android:layout_marginRight="10dp"
+                    />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:textColor="@color/colorTextWhite"
+                    android:textSize="@dimen/NormalSizeText"
+                    android:layout_weight="1"
+                    android:id="@+id/tx_humidity" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+
+                android:layout_height="1dp"
+                android:background="@color/colorLine" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/MarginTopForDay"
+                android:layout_marginBottom="@dimen/MarginBottomForDay"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Tx_Wind"
+                    android:textColor="@color/colorTextWhite"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/NormalSizeText"
+                    android:gravity="right"
+                    android:layout_marginRight="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:textColor="@color/colorTextWhite"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/NormalSizeText"
+                    android:id="@+id/tx_wind" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+
+                android:layout_height="1dp"
+                android:background="@color/colorLine" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
