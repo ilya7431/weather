@@ -122,5 +122,8 @@
     <string name="pref_update_time_key">update_time</string>
     <string name="today_min_temp">min</string>
     <string name="today_middle_temp">middle</string>
-    <string name="today_high_temp">high</string>
+    <string name="today_high_temp">max</string>
+    <string name="sp_get_city_name_key">get_city_name</string>
+    <string name="sp_get_select_day_key">get_select_day</string>
+    <string name="simple_dae_format">EEEE, dd MMMM</string>
 </resources>

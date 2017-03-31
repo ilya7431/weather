@@ -14,14 +14,15 @@ import static android.graphics.Paint.ANTI_ALIAS_FLAG;
 
 /**
  * Created by ilyas on 31.03.2017.
+ * Draw graph temp
  */
 
 public class GraphTemp extends View {
     private String minTemp;
     private String middleTemp;
-    private String highTemp;
+    private String maxTemp;
     private boolean isTextDraw;
-    private Paint mPaint = new Paint(ANTI_ALIAS_FLAG);
+    private Paint mPaint = new Paint();
     private Paint mPaintCircle = new Paint();
     private Paint mPaintText = new Paint();
 
@@ -43,12 +44,12 @@ public class GraphTemp extends View {
         this.middleTemp = middleTemp;
     }
 
-    public String getHighTemp() {
-        return highTemp;
+    public String getMaxTemp() {
+        return maxTemp;
     }
 
-    public void setHighTemp(String highTemp) {
-        this.highTemp = highTemp;
+    public void setMaxTemp(String maxTemp) {
+        this.maxTemp = maxTemp;
     }
 
     public GraphTemp(Context context) {
@@ -69,6 +70,7 @@ public class GraphTemp extends View {
 
         mPaintText.setFlags(Paint.ANTI_ALIAS_FLAG);
         mPaintCircle.setFlags(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setFlags(ANTI_ALIAS_FLAG);
 
         mPaintText.setColor(Color.WHITE);
         mPaint.setColor(Color.WHITE);
@@ -84,7 +86,7 @@ public class GraphTemp extends View {
         //middleTemp
         canvas.drawCircle(((getWidth()) / 2), getPixel(90), 25, mPaintCircle);
         canvas.drawText(getContext().getString(R.string.today_middle_temp), ((getWidth() / 2) - getPixel(10)), getPixel(115), mPaintText);
-        //highTemp
+        //maxTemp
         canvas.drawCircle(getWidth() - getPixel(30), getPixel(60), 25, mPaintCircle);
         canvas.drawText(getContext().getString(R.string.today_high_temp), getWidth() - getPixel(40), getPixel(85), mPaintText);
 
@@ -92,7 +94,7 @@ public class GraphTemp extends View {
             mPaintText.setTextSize(40);
             canvas.drawText(minTemp, getPixel(20), getPixel(95), mPaintText);
             canvas.drawText(middleTemp, ((getWidth() / 2) - getPixel(10)), getPixel(65), mPaintText);
-            canvas.drawText(highTemp, getWidth() - getPixel(40), getPixel(35), mPaintText);
+            canvas.drawText(maxTemp, getWidth() - getPixel(40), getPixel(35), mPaintText);
         }
     }
 

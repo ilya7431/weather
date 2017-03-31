@@ -16,6 +16,7 @@ import rx.Observable;
 import static com.weather.weather.network.OpenWeatherContract.METHOD_GET_DAILY_FORECAST;
 import static com.weather.weather.network.OpenWeatherContract.PARAM_DAYS;
 import static com.weather.weather.network.OpenWeatherContract.PARAM_ID;
+import static com.weather.weather.network.OpenWeatherContract.PARAM_QUERY;
 import static com.weather.weather.network.OpenWeatherContract.ROOT_URL;
 
 public class RestAPI {
@@ -55,7 +56,7 @@ public class RestAPI {
 
     public interface Api {
         @GET(METHOD_GET_DAILY_FORECAST)
-        Observable<Forecast> getForecast(@Query(PARAM_ID) final String _cityID,
-                                         @Query(PARAM_DAYS) final String _day);
+        Observable<Forecast> getForecast(@Query(PARAM_QUERY) final String _cityID,
+                                         @Query(PARAM_DAYS) final int _day);
     }
 }
