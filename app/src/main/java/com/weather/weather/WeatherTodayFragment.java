@@ -11,11 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.weather.weather.data.realmModel.ForecastRealm;
 import com.weather.weather.helper.GetColors;
+import com.weather.weather.helper.GraphTemp;
 import com.weather.weather.helper.TypeWeather;
 
 import java.text.DateFormat;
@@ -35,13 +36,14 @@ public class WeatherTodayFragment extends Fragment  {
     private TextView wint ;
     private TextView humidity ;
     private ImageView image ;
-    private LinearLayout lonear ;
+    private RelativeLayout relativeLayout;
     private Toolbar toolbar;
     private ActionBar actionBar;
     private  Realm realm;
     private RealmChangeListener realmChangeListener;
     private RealmResults<ForecastRealm> forecastRealms;
     private ProgressDialog progressDialog;
+    GraphTemp graphTemp;
 
 
 
@@ -49,8 +51,9 @@ public class WeatherTodayFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        return inflater.inflate(R.layout.content_weather_today, null);
+        View view = inflater.inflate(R.layout.content_weather_today, null);
+        graphTemp = (GraphTemp) view.findViewById(R.id.graph);
+        return view;
     }
 
     @Override
@@ -66,8 +69,12 @@ public class WeatherTodayFragment extends Fragment  {
         wint = (TextView) getActivity().findViewById(R.id.tx_wind);
         humidity = (TextView) getActivity().findViewById(R.id.tx_humidity);
         image = (ImageView) getActivity().findViewById(R.id.im_weather_day);
-        lonear = (LinearLayout) getActivity().findViewById(R.id.li_info_day);
+        relativeLayout = (RelativeLayout) getActivity().findViewById(R.id.layout_info_day);
         actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+
+        graphTemp.setMinTemp("-30");
+        graphTemp.setMiddleTemp("30");
+        graphTemp.setHighTemp("60");
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(false);
 
@@ -131,7 +138,7 @@ public class WeatherTodayFragment extends Fragment  {
         actionBar.setTitle(dateString);
         image.setImageResource((int)colors[0]);
         toolbar.setBackgroundResource((int)colors[1]);
-        lonear.setBackgroundResource((int)colors[2]);
+        relativeLayout.setBackgroundResource((int)colors[2]);
         progressDialog.cancel();
         }
     }

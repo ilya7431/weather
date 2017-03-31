@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import com.weather.weather.data.model.City;
 import com.weather.weather.helper.PrefUtils;
-import com.weather.weather.services.UpdateOnTime;
 
 public class SettingActivity extends AppCompatActivity  {
     private Context mContext;
@@ -124,7 +123,6 @@ public class SettingActivity extends AppCompatActivity  {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position != 0){
                     PrefUtils.setPrefTimeUpdate(mContext,position);
-                    startService(new Intent(mContext, UpdateOnTime.class));
 
                 }else swUpdateTime.setChecked(false);
                 //TODO start services update on time

@@ -120,4 +120,7 @@
     <string name="title_spinner_update_time"> Select how many update</string>
     <string name="pref_switch_update_time_key">update_time_switch</string>
     <string name="pref_update_time_key">update_time</string>
+    <string name="today_min_temp">min</string>
+    <string name="today_middle_temp">middle</string>
+    <string name="today_high_temp">high</string>
 </resources>
