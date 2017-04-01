@@ -15,6 +15,7 @@ public final class OpenWeatherContract {
     public static final String PARAM_APPID = "APPID";
     public static final String PARAM_FORECAST = "forecast";
     public static final String PARAM_DAILY = "daily";
+    public static final String PARAM_LANG = "lang";
 
     public static final String BASE_PARAM = "?" + PARAM_FORMAT + "=json&"
             + PARAM_UNITS + "=metric&"

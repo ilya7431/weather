@@ -126,4 +126,5 @@
     <string name="sp_get_city_name_key">get_city_name</string>
     <string name="sp_get_select_day_key">get_select_day</string>
     <string name="simple_dae_format">EEEE, dd MMMM</string>
+    <string name="lang_app">en</string>
 </resources>

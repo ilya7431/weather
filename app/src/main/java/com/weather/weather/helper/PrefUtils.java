@@ -34,13 +34,13 @@ public final class PrefUtils {
         }
     }
 
-    public static City getPrefLocation(Context context) {
-        final SharedPreferences pref = context.getSharedPreferences(context.getString(R.string.SP_City), Context.MODE_PRIVATE);
-        City city = new City();
-        city.id = pref.getInt(context.getString(R.string.pref_location_id_key), Integer.valueOf(context.getString(R.string.pref_location_id_default)));
-        city.name = pref.getString(context.getString(R.string.pref_location_name_key), context.getString(R.string.pref_location_name_default));
-        return city;
-    }
+//    public static City getPrefLocation(Context context) {
+//        final SharedPreferences pref = context.getSharedPreferences(context.getString(R.string.SP_City), Context.MODE_PRIVATE);
+//        City city = new City();
+//        city.id = pref.getInt(context.getString(R.string.pref_location_id_key), Integer.valueOf(context.getString(R.string.pref_location_id_default)));
+//        city.name = pref.getString(context.getString(R.string.pref_location_name_key), context.getString(R.string.pref_location_name_default));
+//        return city;
+//    }
 
     /**
      * @param context

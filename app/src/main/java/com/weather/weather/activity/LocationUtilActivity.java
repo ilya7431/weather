@@ -1,4 +1,4 @@
-package com.weather.weather;
+package com.weather.weather.activity;
 
 import android.Manifest;
 import android.app.ProgressDialog;
@@ -28,6 +28,8 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStates;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
+import com.weather.weather.BuildConfig;
+import com.weather.weather.R;
 import com.weather.weather.helper.PrefUtils;
 import com.weather.weather.network.OpenWeatherContract;
 

@@ -18,8 +18,8 @@ import java.net.URL;
 import java.net.UnknownHostException;
 
 
-public class GetRequest extends AsyncTaskLoader<String> {
-
+public class GetRequest  {
+// AsyncTaskLoader<String>
 
     private String returnValue;
     private Context mContext;
@@ -27,69 +27,69 @@ public class GetRequest extends AsyncTaskLoader<String> {
     private URL url;
     private String[] data;
 
-    public GetRequest(Context context,Bundle data) {
-        super(context);
-       mContext = context;
-
-
-    }
-
-    @Override
-    public String loadInBackground() {
-        try {
-
-
-
-
-            ConnectivityManager connectivityManager = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-
-
-            if (PrefUtils.getPrefUpdateWIFI(mContext)){
-
-                if (networkInfo.getType() == ConnectivityManager.TYPE_WIFI){
-                    checkSwitchWifi = true;
-
-                }else checkSwitchWifi = false;
-
-            }else  checkSwitchWifi = true;
-
-
-            if (checkSwitchWifi){
-                //mContext.getString(R.string.UrlTest)
-                City city = PrefUtils.getPrefLocation(mContext);
-                 url = new URL(OpenWeatherContract.ROOT_URL + OpenWeatherContract.METHOD_GET_DAILY_FORECAST
-                         +  ("&" +OpenWeatherContract.PARAM_ID)
-                         + "=" + city.id
-                         + ("&" + OpenWeatherContract.PARAM_DAYS + "=7"));
-
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-
-                    BufferedReader in = new BufferedReader(new InputStreamReader(
-                            connection.getInputStream()));
-                    String inputLine;
-                    while ((inputLine = in.readLine()) != null)
-                        returnValue = inputLine;
-                    in.close();
-
-
-                } else {
-                    returnValue = mContext.getString(R.string.ExceptionHTTPLocal);
-                }
-            }else returnValue = (mContext.getString(R.string.DisableWifi));
-
-        }catch (UnknownHostException e){
-            returnValue = mContext.getString(R.string.ExceptionHost);
-
-        }catch (ConnectException e){
-            returnValue = mContext.getString(R.string.ExceptionConnect);
-
-        }catch (Exception e) {
-            returnValue = mContext.getString(R.string.ExceptionAPPLocal);
-        }
-        return returnValue;
-    }
+//    public GetRequest(Context context,Bundle data) {
+//        super(context);
+//       mContext = context;
+//
+//
+//    }
+//
+//    @Override
+//    public String loadInBackground() {
+//        try {
+//
+//
+//
+//
+//            ConnectivityManager connectivityManager = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+//            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+//
+//
+//            if (PrefUtils.getPrefUpdateWIFI(mContext)){
+//
+//                if (networkInfo.getType() == ConnectivityManager.TYPE_WIFI){
+//                    checkSwitchWifi = true;
+//
+//                }else checkSwitchWifi = false;
+//
+//            }else  checkSwitchWifi = true;
+//
+//
+//            if (checkSwitchWifi){
+//                //mContext.getString(R.string.UrlTest)
+//                City city = PrefUtils.getPrefLocation(mContext);
+//                 url = new URL(OpenWeatherContract.ROOT_URL + OpenWeatherContract.METHOD_GET_DAILY_FORECAST
+//                         +  ("&" +OpenWeatherContract.PARAM_ID)
+//                         + "=" + city.id
+//                         + ("&" + OpenWeatherContract.PARAM_DAYS + "=7"));
+//
+//                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//                if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+//
+//                    BufferedReader in = new BufferedReader(new InputStreamReader(
+//                            connection.getInputStream()));
+//                    String inputLine;
+//                    while ((inputLine = in.readLine()) != null)
+//                        returnValue = inputLine;
+//                    in.close();
+//
+//
+//                } else {
+//                    returnValue = mContext.getString(R.string.ExceptionHTTPLocal);
+//                }
+//            }else returnValue = (mContext.getString(R.string.DisableWifi));
+//
+//        }catch (UnknownHostException e){
+//            returnValue = mContext.getString(R.string.ExceptionHost);
+//
+//        }catch (ConnectException e){
+//            returnValue = mContext.getString(R.string.ExceptionConnect);
+//
+//        }catch (Exception e) {
+//            returnValue = mContext.getString(R.string.ExceptionAPPLocal);
+//        }
+//        return returnValue;
+//    }
 
 }
 

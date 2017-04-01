@@ -8,7 +8,8 @@
     <dimen name="fab_margin">16dp</dimen>
 
 
-    <dimen name="NormalSizeText">20sp</dimen>
+    <dimen name="NormalSizeText">15sp</dimen>
     <dimen name="MarginTopForDay">5dp</dimen>
     <dimen name="MarginBottomForDay">5dp</dimen>
+    <dimen name="today_size_image">24dp</dimen>
 </resources>

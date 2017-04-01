@@ -1,4 +1,4 @@
-package com.weather.weather;
+package com.weather.weather.fragment;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.weather.weather.R;
 import com.weather.weather.adapters.ListAdapter;
 import com.weather.weather.data.realmModel.ForecastRealm;
 
