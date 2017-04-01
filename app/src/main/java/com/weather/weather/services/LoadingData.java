@@ -16,7 +16,7 @@ import android.support.v4.app.TaskStackBuilder;
 
 import com.google.android.gms.gcm.GcmTaskService;
 import com.google.android.gms.gcm.TaskParams;
-import com.weather.weather.MainActivity;
+import com.weather.weather.activity.MainActivity;
 import com.weather.weather.R;
 import com.weather.weather.data.model.City;
 import com.weather.weather.helper.ParserJson;

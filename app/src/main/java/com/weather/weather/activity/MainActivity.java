@@ -1,4 +1,4 @@
-package com.weather.weather;
+package com.weather.weather.activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -13,14 +13,15 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.weather.weather.R;
+import com.weather.weather.fragment.WeatherTodayFragment;
+import com.weather.weather.fragment.WeatherWeekFragment;
 import com.weather.weather.data.model.City;
 import com.weather.weather.helper.ClearCache;
 import com.weather.weather.helper.PrefUtils;
-import com.weather.weather.services.LoadingData;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

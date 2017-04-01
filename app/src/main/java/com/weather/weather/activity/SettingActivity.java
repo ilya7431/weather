@@ -1,4 +1,4 @@
-package com.weather.weather;
+package com.weather.weather.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +18,7 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.weather.weather.R;
 import com.weather.weather.data.model.City;
 import com.weather.weather.helper.PrefUtils;
 

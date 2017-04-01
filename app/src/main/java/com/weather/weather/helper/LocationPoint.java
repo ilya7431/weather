@@ -4,7 +4,6 @@ package com.weather.weather.helper;
 import android.Manifest;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,7 +19,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 
 import com.weather.weather.BuildConfig;
-import com.weather.weather.LocationUtilActivity;
+import com.weather.weather.activity.LocationUtilActivity;
 import com.weather.weather.R;
 import com.weather.weather.network.OpenWeatherContract;
 

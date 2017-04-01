@@ -16,121 +16,97 @@
 
     <ImageView
         android:id="@+id/im_weather_day"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/sun" />
 
     <com.weather.weather.helper.GraphTemp
         android:id="@+id/graph"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_below="@+id/im_weather_day" />
+        android:layout_alignParentBottom="true" />
+
     <TextView
-        android:id="@+id/tx_temperature_day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/im_weather_day"
-        android:visibility="gone"
-        android:textColor="@color/colorTextWhite"
-        android:textSize="50sp" />
-
-
-    <LinearLayout
+        android:id="@+id/tx_desc"
+        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:baselineAligned="false"
-        android:gravity="bottom"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/MarginBottomForDay"
-            android:layout_marginTop="@dimen/MarginTopForDay"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:text="@string/Text_Pressure"
-                android:textColor="@color/colorTextWhite"
-                android:textSize="@dimen/NormalSizeText"
-
-                />
-
-            <TextView
-                android:id="@+id/tx_pressure_day"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_weight="1"
-                android:textColor="@color/colorTextWhite"
-                android:textSize="@dimen/NormalSizeText" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/MarginBottomForDay"
-
-            android:layout_marginTop="@dimen/MarginTopForDay"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:text="@string/Tx_Humidity"
-                android:textColor="@color/colorTextWhite"
-                android:textSize="@dimen/NormalSizeText" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/im_weather_day"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="30sp"
+        android:gravity="center_horizontal"
+        android:visibility="visible" />
 
 
-            <TextView
-                android:id="@+id/tx_humidity"
-                android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/im_barometer"
+        android:layout_width="@dimen/today_size_image"
+        android:layout_height="@dimen/today_size_image"
+        android:layout_above="@+id/graph"
+        android:src="@drawable/ic_barometer" />
 
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="@color/colorTextWhite"
-                android:textSize="@dimen/NormalSizeText" />
-        </LinearLayout>
+    <ImageView
+        android:id="@+id/im_humidity"
+        android:layout_width="@dimen/today_size_image"
+        android:layout_height="@dimen/today_size_image"
+        android:layout_above="@+id/graph"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@+id/tx_pressure_day"
+        android:layout_toRightOf="@+id/tx_pressure_day"
+        android:src="@drawable/ic_humidity" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/MarginBottomForDay"
-            android:layout_marginTop="@dimen/MarginTopForDay"
-            android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/im_speed"
+        android:layout_width="@dimen/today_size_image"
+        android:layout_height="@dimen/today_size_image"
+        android:layout_above="@+id/graph"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@+id/tx_humidity"
+        android:layout_toRightOf="@+id/tx_humidity"
+        android:src="@drawable/ic_wind_speed_flag" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:text="@string/Tx_Wind"
-                android:textColor="@color/colorTextWhite"
-                android:textSize="@dimen/NormalSizeText" />
+    <TextView
+        android:id="@+id/tx_pressure_day"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/today_size_image"
+        android:layout_above="@+id/graph"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@+id/im_barometer"
+        android:layout_toRightOf="@+id/im_barometer"
+        android:gravity="center_vertical"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="@dimen/NormalSizeText" />
 
-            <TextView
-                android:id="@+id/tx_wind"
-                android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tx_humidity"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/today_size_image"
+        android:layout_above="@+id/graph"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@+id/im_humidity"
+        android:layout_toRightOf="@+id/im_humidity"
+        android:gravity="center_vertical"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="@dimen/NormalSizeText" />
 
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="@color/colorTextWhite"
-                android:textSize="@dimen/NormalSizeText" />
-        </LinearLayout>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/tx_wind"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/today_size_image"
+        android:layout_above="@+id/graph"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@+id/im_speed"
+        android:layout_toRightOf="@+id/im_speed"
+        android:gravity="center_vertical"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="@dimen/NormalSizeText" />
+
 </RelativeLayout>

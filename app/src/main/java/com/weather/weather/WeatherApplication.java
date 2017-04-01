@@ -1,4 +1,4 @@
-package com.weather.weather.helper;
+package com.weather.weather;
 
 
 import android.app.Application;
@@ -6,6 +6,7 @@ import android.app.Application;
 import com.google.android.gms.gcm.GcmNetworkManager;
 import com.google.android.gms.gcm.OneoffTask;
 import com.google.android.gms.gcm.PeriodicTask;
+import com.weather.weather.helper.PrefUtils;
 import com.weather.weather.services.LoadingData;
 
 import io.realm.Realm;
