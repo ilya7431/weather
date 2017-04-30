@@ -1,6 +1,5 @@
 package com.weather.weather.fragment;
 
-import android.animation.ObjectAnimator;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -13,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -22,7 +20,8 @@ import android.widget.Toast;
 
 import com.weather.weather.R;
 import com.weather.weather.data.model.Forecast;
-import com.weather.weather.data.realmModel.ForecastRealm;
+import com.weather.weather.data.model.Weather;
+import com.weather.weather.data.model.today.WeatherToday;
 import com.weather.weather.helper.GetColors;
 import com.weather.weather.helper.GraphTemp;
 import com.weather.weather.helper.ImageWeather;
@@ -36,9 +35,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import io.realm.Realm;
-import io.realm.RealmChangeListener;
-import io.realm.RealmResults;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -60,6 +56,7 @@ public class WeatherTodayFragment extends Fragment {
     private GraphTemp graphTemp;
     private Subscription mSubscription;
     private Forecast mForecast;
+    private WeatherToday weather;
 
 
     @Override
@@ -67,6 +64,22 @@ public class WeatherTodayFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_weather_today, null);
         graphTemp = (GraphTemp) view.findViewById(R.id.graph);
+
+        toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        desc = (TextView) view.findViewById(R.id.tx_desc);
+        press = (TextView) view.findViewById(R.id.tx_pressure_day);
+        wint = (TextView) view.findViewById(R.id.tx_wind);
+        humidity = (TextView) view.findViewById(R.id.tx_humidity);
+        image = (ImageView) view.findViewById(R.id.im_weather_day);
+        relativeLayout = (RelativeLayout) view.findViewById(R.id.layout_info_day);
+
+        mContext = getActivity();
+
+        if (savedInstanceState != null) {
+            weather = savedInstanceState.getParcelable(getString(R.string.bundle_weather_key));
+        } else {
+            weather = getArguments().getParcelable(getString(R.string.bundle_weather_key));
+        }
         return view;
     }
 
@@ -74,35 +87,12 @@ public class WeatherTodayFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        mContext = getActivity();
-
-        toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-        desc = (TextView) getActivity().findViewById(R.id.tx_desc);
-        press = (TextView) getActivity().findViewById(R.id.tx_pressure_day);
-        wint = (TextView) getActivity().findViewById(R.id.tx_wind);
-        humidity = (TextView) getActivity().findViewById(R.id.tx_humidity);
-        image = (ImageView) getActivity().findViewById(R.id.im_weather_day);
-        relativeLayout = (RelativeLayout) getActivity().findViewById(R.id.layout_info_day);
         actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
-
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(false);
 
-//        progressDialog = new ProgressDialog(mContext);
-//        progressDialog.setMessage("Loading data");
-//        progressDialog.setCancelable(false);
-//        progressDialog.show();
-//
-//        realm = Realm.getDefaultInstance();
-//        realmChangeListener = new RealmChangeListener() {
-//            @Override
-//            public void onChange(Object element) {
-//
-//                loadDATA();
-//            }
-//        };
-//        realm.addChangeListener(realmChangeListener);
-        loadForecast();
+        loadWeather();
+       // loadForecast();
     }
 
 
@@ -120,33 +110,37 @@ public class WeatherTodayFragment extends Fragment {
         if (toolbar != null) toolbar.setBackgroundResource(R.color.colorDrawer);
     }
 
-//    private void loadDATA() {
-//
-//        forecastRealms = realm.where(ForecastRealm.class).findAll();
-//        if (forecastRealms.size() > 0) {
-//
-//
-//            ForecastRealm forecastRealm = new ForecastRealm();
-//            for (ForecastRealm f : forecastRealms) {
-//                forecastRealm = f;
-//            }
-//            temp.setText(forecastRealm.getForecastItem().get(0).getTempRealm().getDay().toString().split("\\.")[0] + "°");
-//            press.setText(forecastRealm.getForecastItem().get(0).getPressure().toString().split("\\.")[0] + mContext.getString(R.string.Press));
-//            wint.setText(forecastRealm.getForecastItem().get(0).getSpeed().toString() + mContext.getString(R.string.Speed));
-//            humidity.setText(forecastRealm.getForecastItem().get(0).getHumidity().toString() + "%");
-//            GetColors getColor = new GetColors();
-//
-//            long[] colors = getColor.GetImage(TypeWeather.getValue(forecastRealm.getForecastItem().get(0).getWeatherRealm().get(0).getMain()));
-//            Date date = new Date(forecastRealm.getForecastItem().get(0).getDt() * 1000);
-//            DateFormat formatOut = new SimpleDateFormat(getString(R.string.simple_dae_format));
-//            String dateString = formatOut.format(date);
-//            actionBar.setTitle(dateString);
-//            image.setImageResource((int) colors[0]);
-//            toolbar.setBackgroundResource((int) colors[1]);
-//            relativeLayout.setBackgroundResource((int) colors[2]);
-//            progressDialog.cancel();
-//        }
-//    }
+    private void loadWeather(){
+        if (weather != null){
+            Date date = new Date(weather.getDt() * 1000);
+            DateFormat formatOut = new SimpleDateFormat(getString(R.string.simple_dae_format), Locale.getDefault());
+            actionBar.setTitle(formatOut.format(date));
+
+            String pressure = String.valueOf(weather.getMain().getPressure()).split("\\.")[0] + " " + mContext.getString(R.string.Press);
+            String speed = String.valueOf(weather.getWind().getSpeed()) + " " + mContext.getString(R.string.Speed);
+            String humidityString = String.valueOf(weather.getMain().getHumidity()) + "%";
+            String minTemp = String.valueOf(weather.getMain().getTempMin()).split("\\.")[0] + "°";
+            String middleTemp = String.valueOf(weather.getMain().getTemp()).split("\\.")[0] + "°";
+            String maxTemp = String.valueOf(weather.getMain().getTempMax()).split("\\.")[0] + "°";
+
+            graphTemp.setMinTemp(minTemp);
+            graphTemp.setMiddleTemp(middleTemp);
+            graphTemp.setMaxTemp(maxTemp);
+            press.setText(pressure);
+            wint.setText(speed);
+            humidity.setText(humidityString);
+            desc.setText(weather.getWeather().get(0).getDescription());
+
+            GetColors getColor = new GetColors();
+
+            long[] colors = getColor.GetImage(TypeWeather.getValue(weather.getWeather().get(0).getMain()));
+            image.setImageDrawable(ImageWeather.getImageWeather(getResources(),weather.getWeather().get(0).getIcon()));
+            toolbar.setBackgroundResource((int) colors[1]);
+            relativeLayout.setBackgroundResource((int) colors[2]);
+
+            showAnimationImage();
+        }
+    }
 
     private void loadForecast() {
         if (mSubscription != null && !mSubscription.isUnsubscribed()) {
@@ -209,8 +203,8 @@ public class WeatherTodayFragment extends Fragment {
 
             long[] colors = getColor.GetImage(TypeWeather.getValue(mForecast.getForecastItem().get(0).getWeather().get(0).getMain()));
             image.setImageDrawable(ImageWeather.getImageWeather(getResources(),mForecast.getForecastItem().get(0).getWeather().get(0).getIcon()));
-            toolbar.setBackgroundResource((int) colors[1]);
-            relativeLayout.setBackgroundResource((int) colors[2]);
+            toolbar.setBackgroundColor((int) colors[1]);
+            relativeLayout.setBackgroundColor((int) colors[2]);
 
             showAnimationImage();
         }

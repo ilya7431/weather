@@ -20,6 +20,7 @@ public class Weather implements Parcelable {
     @SerializedName("icon")
     @Expose
     private String icon;
+
     public final static Parcelable.Creator<Weather> CREATOR = new Creator<Weather>() {
 
 

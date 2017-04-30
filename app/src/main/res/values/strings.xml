@@ -127,4 +127,5 @@
     <string name="sp_get_select_day_key">get_select_day</string>
     <string name="simple_dae_format">EEEE, dd MMMM</string>
     <string name="lang_app">en</string>
+    <string name="bundle_weather_key">weather_key</string>
 </resources>

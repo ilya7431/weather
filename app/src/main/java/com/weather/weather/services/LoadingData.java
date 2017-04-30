@@ -1,34 +1,9 @@
 package com.weather.weather.services;
 
-import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.IBinder;
-import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.TaskStackBuilder;
 
-import com.google.android.gms.gcm.GcmTaskService;
-import com.google.android.gms.gcm.TaskParams;
-import com.weather.weather.activity.MainActivity;
-import com.weather.weather.R;
-import com.weather.weather.data.model.City;
-import com.weather.weather.helper.ParserJson;
-import com.weather.weather.helper.PrefUtils;
-import com.weather.weather.network.OpenWeatherContract;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.ConnectException;
-import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.UnknownHostException;
 
 import io.realm.Realm;
 

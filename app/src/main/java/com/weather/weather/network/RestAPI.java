@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.weather.weather.BuildConfig;
 import com.weather.weather.WeatherApplication;
 import com.weather.weather.data.model.Forecast;
+import com.weather.weather.data.model.Weather;
+import com.weather.weather.data.model.today.WeatherToday;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +26,7 @@ import retrofit2.http.Query;
 import rx.Observable;
 
 import static com.weather.weather.network.OpenWeatherContract.METHOD_GET_DAILY_FORECAST;
+import static com.weather.weather.network.OpenWeatherContract.METHOD_GET_DAILY_WEATHER;
 import static com.weather.weather.network.OpenWeatherContract.PARAM_DAYS;
 import static com.weather.weather.network.OpenWeatherContract.PARAM_LANG;
 import static com.weather.weather.network.OpenWeatherContract.PARAM_QUERY;
@@ -140,5 +143,11 @@ public class RestAPI {
         Observable<Forecast> getForecast(@Query(PARAM_QUERY) final String _cityID,
                                          @Query(PARAM_LANG) final String _lang,
                                          @Query(PARAM_DAYS) final int _day);
+
+
+        @GET(METHOD_GET_DAILY_WEATHER)
+        Observable<WeatherToday> getWeather(@Query(PARAM_QUERY) final String _cityID,
+                                            @Query(PARAM_LANG) final String _lang);
     }
 }
+
